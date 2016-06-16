@@ -52,6 +52,7 @@
     <Compile Include="Alterar.cs" />
     <Compile Include="Cadastro.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
+    <Compile Include="Deletar.cs" />
     <Compile Include="DTO\CategoriaDTO.cs" />
     <Compile Include="DTO\CompraAtivosEstoqueDTO.cs" />
     <Compile Include="DTO\EmpresaDTO.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="DTO\VendaAtivosDTO.cs" />
     <Compile Include="DTO\VendaAtivosEstoqueDTO.cs" />
     <Compile Include="DTO\VendaDTO.cs" />
+    <Compile Include="Editar.cs" />
     <Compile Include="Listar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -53,6 +53,35 @@ namespace SuperERP.Vendas
 
         }
 
+        public static ICollection<ServicoDTO> Servico()
+        {
+
+            Config.AutoMapperConfig.Inicializar();
+
+            var servicoRep = new ServicoRepositorio();
+
+            var servico = servicoRep.PegarServico();
+
+            var s = Mapper.Map<ICollection<Servico>, ICollection<ServicoDTO>>(servico);
+
+            return s;
+
+        }
+        public static ServicoDTO ServicoUnico(int id)
+        {
+
+            Config.AutoMapperConfig.Inicializar();
+
+            var servicoRep = new ServicoRepositorio();
+
+            var servico = servicoRep.PegarServicoUnico(id);
+
+            var s = Mapper.Map<Servico, ServicoDTO>(servico);
+
+            return s;
+
+        }
+
         public static ICollection<ProdutoEstoqueDTO> Estoque()
         {
             Config.AutoMapperConfig.Inicializar();

@@ -16,5 +16,16 @@ namespace SuperERP.DAL.Repositories
             return dbContext.Empresas.ToList();
         }
 
+        public ICollection<Servico> PegarServico()
+        {
+            return dbContext.Servicoes.ToList();
+        }
+        public Servico PegarServicoUnico(int id)
+        {
+            return dbContext.Servicoes.Where(x => x.ID == id).FirstOrDefault();
+        }
+
+
+
     }
 }

@@ -12,7 +12,9 @@ namespace SuperERP.Web.Controllers
         // GET: /Servico/
         public ActionResult Index()
         {
-            return View();
+            var servicos = Vendas.Listar.Servico();
+
+            return View(servicos);
         }
 
         //
@@ -26,10 +28,6 @@ namespace SuperERP.Web.Controllers
         // GET: /Servico/Create
         public ActionResult Create()
         {
-
-
-            //TODO: Como pegar a lista de catgegorias para montar um dropdown?
-            //ViewBag.ID_Categoria = new SelectList(Vendas.DTO.)
             ViewBag.ID_Categoria_Servico = new SelectList(Vendas.Listar.CategoriasServico(), "ID", "Nome");
             ViewBag.ID_Empresa = new SelectList(Vendas.Listar.Empresas(), "ID", "Nome");
             return View();
@@ -57,7 +55,10 @@ namespace SuperERP.Web.Controllers
         // GET: /Servico/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ViewBag.ID_Categoria_Servico = new SelectList(Vendas.Listar.CategoriasServico(), "ID", "Nome");
+            ViewBag.ID_Empresa = new SelectList(Vendas.Listar.Empresas(), "ID", "Nome");
+            var s = Vendas.Listar.ServicoUnico(id);
+            return View(s);
         }
 
         //
@@ -68,6 +69,8 @@ namespace SuperERP.Web.Controllers
             try
             {
                 // TODO: Add update logic here
+
+                Vendas.Editar.Servico(Vendas.Listar.ServicoUnico(id));
 
                 return RedirectToAction("Index");
             }
@@ -81,7 +84,8 @@ namespace SuperERP.Web.Controllers
         // GET: /Servico/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var s = Vendas.Listar.ServicoUnico(id);
+            return View(s);
         }
 
         //
@@ -92,7 +96,7 @@ namespace SuperERP.Web.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                Vendas.Deletar.Servico(id);
                 return RedirectToAction("Index");
             }
             catch
