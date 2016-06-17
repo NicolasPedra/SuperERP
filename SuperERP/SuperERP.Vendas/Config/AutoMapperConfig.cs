@@ -1,4 +1,4 @@
-﻿using SuperERP.DAL.Models;
+﻿using SuperERP.Models;
 using SuperERP.Vendas.DTO;
 
 namespace SuperERP.Vendas.Config
@@ -13,6 +13,7 @@ namespace SuperERP.Vendas.Config
         public static void ConverteDTOParaModel()
         {
             AutoMapper.Mapper.CreateMap<PessoaFisicaDTO, PessoaFisica>();
+            AutoMapper.Mapper.CreateMap<PessoaJuridicaDTO, PessoaJuridica>();
             AutoMapper.Mapper.CreateMap<ParcelamentoDTO, Parcelamento>();
             AutoMapper.Mapper.CreateMap<ProdutoEstoqueDTO, Produto>();
             AutoMapper.Mapper.CreateMap<VendaDTO, Venda>();
@@ -30,12 +31,13 @@ namespace SuperERP.Vendas.Config
         public static void ConverteModelParaDTO()
         {
             AutoMapper.Mapper.CreateMap<PessoaFisica, PessoaFisicaDTO>();
+            AutoMapper.Mapper.CreateMap<PessoaJuridica, PessoaJuridicaDTO>();
             AutoMapper.Mapper.CreateMap<Parcelamento, ParcelamentoDTO>();
             AutoMapper.Mapper.CreateMap<Produto, ProdutoEstoqueDTO>();
             AutoMapper.Mapper.CreateMap<Venda, VendaDTO>();
             AutoMapper.Mapper.CreateMap<Venda_Ativos, VendaAtivosDTO>();
             AutoMapper.Mapper.CreateMap<Venda_Ativos, VendaAtivosEstoqueDTO>();
-            AutoMapper.Mapper.CreateMap<Compra_Ativos, CompraAtivosEstoqueDTO>();
+            AutoMapper.Mapper.CreateMap<Venda_Ativos, CompraAtivosEstoqueDTO>();
             AutoMapper.Mapper.CreateMap<Categoria, CategoriaDTO>();
             AutoMapper.Mapper.CreateMap<Empresa, EmpresaDTO>();
             AutoMapper.Mapper.CreateMap<Servico, ServicoDTO>();

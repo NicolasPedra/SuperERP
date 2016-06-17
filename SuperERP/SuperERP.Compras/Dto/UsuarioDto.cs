@@ -1,13 +1,12 @@
-﻿using SuperERP.DAL.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperERP.Compras.Dto
+namespace SuperERP.Compras.DTO
 {
-   public class UsuarioDto
+    public class UsuarioDTO
     {
         public int ID { get; set; }
         public int ID_Perfil { get; set; }
@@ -15,8 +14,8 @@ namespace SuperERP.Compras.Dto
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
-        public  Empresa Empresa { get; set; }
-        public  Perfil Perfil { get; set; }
+        public  EmpresaDTO Empresa { get; set; }
+        public  PerfilDTO Perfil { get; set; }
 
     }
 }

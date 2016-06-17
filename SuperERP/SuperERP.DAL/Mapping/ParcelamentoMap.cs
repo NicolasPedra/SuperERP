@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.Models.Mapping
 {
     public class ParcelamentoMap : EntityTypeConfiguration<Parcelamento>
     {
@@ -23,10 +23,10 @@ namespace SuperERP.DAL.Models.Mapping
             this.Property(t => t.Data_Pago).HasColumnName("Data_Pago");
 
             // Relationships
-            this.HasRequired(t => t.Compra)
+            this.HasOptional(t => t.Compra)
                 .WithMany(t => t.Parcelamentoes)
                 .HasForeignKey(d => d.ID_Compra);
-            this.HasRequired(t => t.Venda)
+            this.HasOptional(t => t.Venda)
                 .WithMany(t => t.Parcelamentoes)
                 .HasForeignKey(d => d.ID_Venda);
 

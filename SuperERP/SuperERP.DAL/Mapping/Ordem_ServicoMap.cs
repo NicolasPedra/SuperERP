@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.Models.Mapping
 {
     public class Ordem_ServicoMap : EntityTypeConfiguration<Ordem_Servico>
     {
@@ -46,9 +46,7 @@ namespace SuperERP.DAL.Models.Mapping
             // Table & Column Mappings
             this.ToTable("Ordem_Servico");
             this.Property(t => t.ID).HasColumnName("ID");
-            this.Property(t => t.ID_Empresa).HasColumnName("ID_Empresa");
             this.Property(t => t.Nome).HasColumnName("Nome");
-            this.Property(t => t.ID_Cliente).HasColumnName("ID_Cliente");
             this.Property(t => t.ID_Servico).HasColumnName("ID_Servico");
             this.Property(t => t.ID_Status).HasColumnName("ID_Status");
             this.Property(t => t.Numero_Os).HasColumnName("Numero_Os");
@@ -64,12 +62,6 @@ namespace SuperERP.DAL.Models.Mapping
             this.Property(t => t.Obs_Interno).HasColumnName("Obs_Interno");
 
             // Relationships
-            this.HasRequired(t => t.ClienteFornecedor)
-                .WithMany(t => t.Ordem_Servico)
-                .HasForeignKey(d => d.ID_Cliente);
-            this.HasRequired(t => t.Empresa)
-                .WithMany(t => t.Ordem_Servico)
-                .HasForeignKey(d => d.ID_Empresa);
             this.HasRequired(t => t.Servico)
                 .WithMany(t => t.Ordem_Servico)
                 .HasForeignKey(d => d.ID_Servico);

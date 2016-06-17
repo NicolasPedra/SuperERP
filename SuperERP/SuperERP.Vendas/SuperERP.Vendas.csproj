@@ -54,8 +54,10 @@
     <Compile Include="Config\AutoMapperConfig.cs" />
     <Compile Include="Deletar.cs" />
     <Compile Include="DTO\CategoriaDTO.cs" />
+    <Compile Include="DTO\CompraAtiva.cs" />
     <Compile Include="DTO\CompraAtivosEstoqueDTO.cs" />
     <Compile Include="DTO\EmpresaDTO.cs" />
+    <Compile Include="DTO\OrdemServicoDTO.cs" />
     <Compile Include="DTO\ParcelamentoDTO.cs" />
     <Compile Include="DTO\PessoaFisicaDTO.cs" />
     <Compile Include="DTO\PessoaJuridicaDTO.cs" />
@@ -67,6 +69,9 @@
     <Compile Include="Editar.cs" />
     <Compile Include="Listar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ClienteService.cs" />
+    <Compile Include="Service\OrdemServicoService.cs" />
+    <Compile Include="Service\Order_Servico.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SuperERP.DAL\SuperERP.DAL.csproj">

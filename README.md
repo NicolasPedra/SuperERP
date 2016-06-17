@@ -25,6 +25,8 @@ Usuario<br>
 Perfil<br>
 Funcionalidades<br>
 
+Equipe: [allima](https://github.com/allima), [educcjr](https://github.com/educcjr), [nicoli1992](https://github.com/nicoli1992), [gerardoalcaire](https://github.com/gerardoalcaire)<br>
+
 ## Grupo 4 - Financeiro - Diogo
 Movimentações<br>
 Contas Bancarias<br>

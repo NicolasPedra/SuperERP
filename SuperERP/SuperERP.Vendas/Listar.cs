@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using SuperERP.DAL.Models;
 using SuperERP.DAL.Repositories;
+using SuperERP.Models;
 using SuperERP.Vendas.DTO;
 using System.Collections.Generic;
 

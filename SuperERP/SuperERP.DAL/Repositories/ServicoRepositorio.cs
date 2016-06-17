@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using SuperERP.DAL.Models;
+using SuperERP.Models;
 
 namespace SuperERP.DAL.Repositories
 {

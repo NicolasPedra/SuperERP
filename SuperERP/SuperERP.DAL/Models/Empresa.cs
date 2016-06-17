@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
     public partial class Empresa
     {
         public Empresa()
         {
             this.Compras = new List<Compra>();
-            this.Dados_Bancarios = new List<Dados_Bancarios>();
-            this.Ordem_Servico = new List<Ordem_Servico>();
+            this.DadosBancarios = new List<DadosBancario>();
+            this.Enderecoes = new List<Endereco>();
             this.PessoaFisicas = new List<PessoaFisica>();
             this.PessoaJuridicas = new List<PessoaJuridica>();
             this.Produtoes = new List<Produto>();
@@ -22,15 +22,9 @@ namespace SuperERP.DAL.Models
         public string Nome { get; set; }
         public string CNPJ { get; set; }
         public string RazaoSocial { get; set; }
-        public string CEP { get; set; }
-        public string Endereco { get; set; }
-        public string Numero { get; set; }
-        public string Complemento { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
         public virtual ICollection<Compra> Compras { get; set; }
-        public virtual ICollection<Dados_Bancarios> Dados_Bancarios { get; set; }
-        public virtual ICollection<Ordem_Servico> Ordem_Servico { get; set; }
+        public virtual ICollection<DadosBancario> DadosBancarios { get; set; }
+        public virtual ICollection<Endereco> Enderecoes { get; set; }
         public virtual ICollection<PessoaFisica> PessoaFisicas { get; set; }
         public virtual ICollection<PessoaJuridica> PessoaJuridicas { get; set; }
         public virtual ICollection<Produto> Produtoes { get; set; }

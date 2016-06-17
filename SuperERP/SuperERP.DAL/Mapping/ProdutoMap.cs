@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.Models.Mapping
 {
     public class ProdutoMap : EntityTypeConfiguration<Produto>
     {
@@ -23,7 +23,6 @@ namespace SuperERP.DAL.Models.Mapping
             this.Property(t => t.ID).HasColumnName("ID");
             this.Property(t => t.ID_Empresa).HasColumnName("ID_Empresa");
             this.Property(t => t.ID_Categoria).HasColumnName("ID_Categoria");
-            this.Property(t => t.ID_Cliente).HasColumnName("ID_Cliente");
             this.Property(t => t.ID_Ncm).HasColumnName("ID_Ncm");
             this.Property(t => t.ID_Unidade_Medida).HasColumnName("ID_Unidade_Medida");
             this.Property(t => t.ICMS).HasColumnName("ICMS");
@@ -47,9 +46,6 @@ namespace SuperERP.DAL.Models.Mapping
             this.HasRequired(t => t.Categoria)
                 .WithMany(t => t.Produtoes)
                 .HasForeignKey(d => d.ID_Categoria);
-            this.HasRequired(t => t.ClienteFornecedor)
-                .WithMany(t => t.Produtoes)
-                .HasForeignKey(d => d.ID_Cliente);
             this.HasRequired(t => t.Empresa)
                 .WithMany(t => t.Produtoes)
                 .HasForeignKey(d => d.ID_Empresa);

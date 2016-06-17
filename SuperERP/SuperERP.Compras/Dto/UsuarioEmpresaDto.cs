@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SuperERP.Compras.Dto
+namespace SuperERP.Compras.DTO
 {
-    public class UsuarioEmpresaDto
+    public class UsuarioEmpresaDTO
     {
         public int ID { get; set; }
         public string Nome { get; set; }
@@ -17,7 +17,5 @@ namespace SuperERP.Compras.Dto
         public string Complemento { get; set; }
         public string Bairro { get; set; }
         public string Cidade { get; set; }
-
-
     }
 }

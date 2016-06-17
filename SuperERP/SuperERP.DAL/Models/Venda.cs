@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
     public partial class Venda
     {
@@ -28,7 +28,7 @@ namespace SuperERP.DAL.Models
         public string Observacoes { get; set; }
         public virtual ClienteFornecedor ClienteFornecedor { get; set; }
         public virtual ICollection<Contrato_Venda> Contrato_Venda { get; set; }
-        public virtual Dados_Bancarios Dados_Bancarios { get; set; }
+        public virtual DadosBancario DadosBancario { get; set; }
         public virtual Empresa Empresa { get; set; }
         public virtual Forma_Pgto Forma_Pgto { get; set; }
         public virtual ICollection<Parcelamento> Parcelamentoes { get; set; }

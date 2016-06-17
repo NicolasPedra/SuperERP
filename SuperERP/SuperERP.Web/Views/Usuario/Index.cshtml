@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SuperERP.Compras.DTO.UsuarioDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Usuários</h2>
+
+<p>
+    @Html.ActionLink("Novo usuário", "Incluir")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Perfil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Empresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Senha)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Perfil)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Empresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Senha)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Alterar", new { id=item.ID }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

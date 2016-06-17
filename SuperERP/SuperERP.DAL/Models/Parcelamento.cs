@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
     public partial class Parcelamento
     {
         public int ID { get; set; }
         public Nullable<int> ID_Compra { get; set; }
-        public int ID_Venda { get; set; }
+        public Nullable<int> ID_Venda { get; set; }
         public int Numero_Parcela { get; set; }
         public decimal Valor { get; set; }
         public Nullable<bool> Pago { get; set; }

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
     public partial class Categoria
     {

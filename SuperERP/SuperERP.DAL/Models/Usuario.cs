@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
     public partial class Usuario
     {
         public Usuario()
         {
+            this.Compras = new List<Compra>();
             this.Vendas = new List<Venda>();
         }
 
@@ -16,6 +17,7 @@ namespace SuperERP.DAL.Models
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
+        public virtual ICollection<Compra> Compras { get; set; }
         public virtual Empresa Empresa { get; set; }
         public virtual Perfil Perfil { get; set; }
         public virtual ICollection<Venda> Vendas { get; set; }

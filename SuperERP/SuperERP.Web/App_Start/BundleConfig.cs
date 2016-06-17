@@ -9,7 +9,8 @@ namespace SuperERP.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-2.2.3.js"));
+                        "~/Scripts/jquery-2.2.3.js",
+                        "~/Scripts/jquery.dataTables.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -26,6 +27,9 @@ namespace SuperERP.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/datatable").Include(
+                      "~/Content/DataTable/jquery.dataTables.min.css"));
         }
     }
 }

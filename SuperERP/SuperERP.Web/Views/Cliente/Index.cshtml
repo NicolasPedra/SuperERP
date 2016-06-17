@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Clientes";
+}
+
+<h2>Clientes</h2>
+<div class="well">
+    <p>
+        <a href="/cliente/cadastro" class="btn btn-success">Cadastrar</a>
+    </p>
+    <table class="table table-hover" id="myTable">
+        <thead>
+            <tr>
+                <th>
+                    Cliente
+                </th>
+                <th>
+                    CPF/CNPJ
+                </th>
+                <th>
+                    E-mail
+                </th>
+                <th>
+                    Telefone
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.fisicas)
+            {
+
+                <tr class="clickable-row" onclick="document.location = '@Url.Action("Editar", "Cliente", new { id = item.ID, tipo = 1 })';">
+                    <td>
+                        @Html.Raw(item.Nome)
+                    </td>
+                    <td>
+                        @Html.Raw(item.CPF)
+                    </td>
+                    <td>
+                        @Html.Raw(item.Email)
+                    </td>
+                    <td>
+                        @Html.Raw(item.Fone)
+                    </td>
+                </tr>
+            }
+            @foreach (var item in ViewBag.juridicas)
+            {
+                <tr class="clickable-row" onclick="document.location = '@Url.Action("Editar", "Cliente", new { id = item.ID, tipo = 2 })';">
+                    <td>
+                        @Html.Raw(item.Nome)
+                    </td>
+                    <td>
+                        @Html.Raw(item.CNPJ)
+                    </td>
+                    <td>
+                        @Html.Raw(item.Email)
+                    </td>
+                    <td>
+                        @Html.Raw(item.Fone)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -130,13 +130,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CadastroController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\EstoqueGeralController.cs" />
     <Compile Include="Controllers\FinanceiroController.cs" />
+    <Compile Include="Controllers\FuncionalidadeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NotaFiscalVendaController.cs" />
+    <Compile Include="Controllers\OrdemServicoController.cs" />
     <Compile Include="Controllers\ParcelasAReceberController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\ServicoController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\VendasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -148,6 +154,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\DataTable\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTable\sort_asc.png" />
+    <Content Include="Content\DataTable\sort_asc_disabled.png" />
+    <Content Include="Content\DataTable\sort_both.png" />
+    <Content Include="Content\DataTable\sort_desc.png" />
+    <Content Include="Content\DataTable\sort_desc_disabled.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -169,6 +181,7 @@
     <Content Include="Scripts\jquery-2.2.3.min.js" />
     <Content Include="Scripts\jquery-2.2.3.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -202,8 +215,30 @@
     <Content Include="Views\EstoqueGeral\Inventario.cshtml" />
     <Content Include="Views\Servico\Create.cshtml" />
     <Content Include="Views\Servico\Index.cshtml" />
-    <Content Include="Views\Servico\Delete.cshtml" />
-    <Content Include="Views\Servico\Edit.cshtml" />
+    <Content Include="Views\Cadastro\Empresa.cshtml" />
+    <Content Include="Views\Usuario\Incluir.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Alterar.cshtml" />
+    <Content Include="Views\Usuario\Excluir.cshtml" />
+    <Content Include="Views\Funcionalidade\Index.cshtml" />
+    <Content Include="Views\Funcionalidade\Incluir.cshtml" />
+    <Content Include="Views\Funcionalidade\Alterar.cshtml" />
+    <Content Include="Views\Funcionalidade\Excluir.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Perfil\Incluir.cshtml" />
+    <Content Include="Views\Perfil\Alterar.cshtml" />
+    <Content Include="Views\Perfil\Excluir.cshtml" />
+    <Content Include="Views\Empresa\Index.cshtml" />
+    <Content Include="Views\Empresa\Incluir.cshtml" />
+    <Content Include="Views\Empresa\Alterar.cshtml" />
+    <Content Include="Views\Empresa\Excluir.cshtml" />
+    <Content Include="Views\OrdemServico\CadastrarNovaOrdem.cshtml" />
+    <Content Include="Views\OrdemServico\DetalheOrdem.cshtml" />
+    <Content Include="Views\OrdemServico\EditarOrdemServico.cshtml" />
+    <Content Include="Views\OrdemServico\ListarTodasOrdens.cshtml" />
+    <Content Include="Views\Cliente\Cadastrar.cshtml" />
+    <Content Include="Views\Cliente\Editar.cshtml" />
+    <Content Include="Views\Cliente\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

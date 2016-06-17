@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SuperERP.Compras.DTO.PerfilDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Incluir")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Alterar", new { pefilID = item.ID }) |
+            @Html.ActionLink("Delete", "Excluir", new { pefilID = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

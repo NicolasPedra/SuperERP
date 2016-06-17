@@ -33,7 +33,6 @@ namespace SuperERP.DAL.Repositories
             }
             return true;
         }
-
         public bool Alterar(T entidade)
         {
             try

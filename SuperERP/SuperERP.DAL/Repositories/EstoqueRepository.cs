@@ -1,10 +1,10 @@
-﻿using SuperERP.DAL.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Entity;
 using System.Threading.Tasks;
+using SuperERP.Models;
 
 namespace SuperERP.DAL.Repositories
 {

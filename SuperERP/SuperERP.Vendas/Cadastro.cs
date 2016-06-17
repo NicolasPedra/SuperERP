@@ -1,6 +1,6 @@
-﻿using SuperERP.Vendas.DTO;
+﻿using SuperERP.Models;
+using SuperERP.Vendas.DTO;
 using System;
-using SuperERP.DAL.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

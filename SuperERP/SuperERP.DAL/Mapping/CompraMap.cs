@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.Models.Mapping
 {
     public class CompraMap : EntityTypeConfiguration<Compra>
     {
@@ -20,6 +20,7 @@ namespace SuperERP.DAL.Models.Mapping
             this.Property(t => t.ID).HasColumnName("ID");
             this.Property(t => t.ID_Empresa).HasColumnName("ID_Empresa");
             this.Property(t => t.ID_Fornecedor).HasColumnName("ID_Fornecedor");
+            this.Property(t => t.ID_Usuario).HasColumnName("ID_Usuario");
             this.Property(t => t.ID_Status).HasColumnName("ID_Status");
             this.Property(t => t.Compra_Num).HasColumnName("Compra_Num");
             this.Property(t => t.Data_Compra).HasColumnName("Data_Compra");
@@ -32,7 +33,7 @@ namespace SuperERP.DAL.Models.Mapping
             this.HasRequired(t => t.ClienteFornecedor)
                 .WithMany(t => t.Compras)
                 .HasForeignKey(d => d.ID_Fornecedor);
-            this.HasRequired(t => t.Dados_Bancarios)
+            this.HasRequired(t => t.DadosBancario)
                 .WithMany(t => t.Compras)
                 .HasForeignKey(d => d.ID_conta);
             this.HasRequired(t => t.Empresa)
@@ -44,6 +45,9 @@ namespace SuperERP.DAL.Models.Mapping
             this.HasRequired(t => t.Status_Venda)
                 .WithMany(t => t.Compras)
                 .HasForeignKey(d => d.ID_Status);
+            this.HasRequired(t => t.Usuario)
+                .WithMany(t => t.Compras)
+                .HasForeignKey(d => d.ID_Usuario);
 
         }
     }

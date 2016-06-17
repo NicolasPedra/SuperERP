@@ -2,6 +2,14 @@
     ViewBag.Title = "Nota Fiscal - Produto";
     var venda = ViewBag.venda;
     var totalVendaProdutos = 0;
+    var totalICMS = 0;
+    var totalCOFINS = 0;
+    var totalPIS = 0;
+    var totalIPI = 0;
+    var totalIVA = 0;
+    var totalST  = 0;
+    var totalImpostos  = 0;
+    var totalVenda = 0; 
 }
 <style>
     .tableHeader{text-align:center; border-bottom:2px double #337ab7;padding-bottom:2px}
@@ -32,7 +40,7 @@
         <div class="row">
             <div class="col-sm-3">
                 <h3>Data da Venda</h3>
-                <h4>@ViewBag.venda.Data_Venda</h4>
+                <h4>@ViewBag.venda.Data_Venda.Date</h4>
              </div>
         </div>
 
@@ -106,17 +114,29 @@
             <hr />  
             <table class="table-striped table-hover table">
                 <tr>
-                    <th>Produto Vendido</th><th>NCM</th><th>ICMS</th><th>Situação Tributária</th>
+                    <th>Produto Vendido</th><th>NCM</th><th>Situação Tributária</th><th>Preço</th>
                 </tr>
                 @foreach(var item in ViewBag.vendaAtivos){
-                    totalVendaProdutos += item.Produto.Valor_Venda;
+                     totalVendaProdutos += item.Produto.Valor_Venda;
+                     totalPIS       += item.Produto.PIS * item.Produto.Valor_Venda;
+                     totalIPI       += item.Produto.IPI * item.Produto.Valor_Venda;
+                     totalCOFINS    += item.Produto.COFINS * item.Produto.Valor_Venda;
+                     totalIVA       += item.Produto.IVA * item.Produto.Valor_Venda;
+                     totalST        += item.Produto.ST  * item.Produto.Valor_Venda;
+                     totalICMS      += item.Produto.ICMS  * item.Produto.Valor_Venda;
+                        
+                    totalImpostos = totalPIS + totalIPI + totalCOFINS + totalIVA + totalST + totalICMS;
+    
                     <tr>
                         <td>@item.Produto.Nome</td>
-                        <td><input class="form-control" type="text" placeholder="521 - Cavalos" id="ncm-@item.ID" name="ncm-@item.ID" value="@item.Produto.Ncm.Codico" /></td>
-                        <td><input class="form-control" type="number" placeholder="0,00" id="icms-@item.ID" name="icms-@item.ID" value="@item.Produto.ICMS" /></td>
-                        <td><input class="form-control" type="text" placeholder="900 - Outros" id="sitTributaria-@item.ID" name="sitTributaria-@item.ID" value="" /></td>
+                        <td><input class="form-control" type="text"     placeholder="521 - Cavalos" id="ncm-@item.ID"           name="ncm-@item.ID"             value="@item.Produto.Ncm.Codico" /></td>
+                        <td><input class="form-control" type="text"     placeholder="900 - Outros"  id="sitTributaria-@item.ID" name="sitTributaria-@item.ID"   value="" /></td>
+                        <td><input class="form-control" type="number"   placeholder="R$50.00"       id="valorVenda-@item.ID"    name="valorVenda-@item.ID"      value="@item.Produto.Valor_Venda" /></td>
                     </tr>
                 }
+            @{
+                totalVenda = totalVendaProdutos + totalImpostos;
+            }
             <table>
         </div>
 
@@ -136,6 +156,7 @@
                         <h5 class="tableHeader">Produtos Vendidos</h5>
                         <div class="row">
                             <div class="col-sm-1"></div>
+                            <input type="hidden" id="txtTotalVenda" value="@totalVendaProdutos" />
                             <span class="col-sm-5">Valor total de produtos na venda: </span>
                             <div class="col-sm-2"></div>
                             <span class="col-sm-4">R$@totalVendaProdutos </span>
@@ -146,25 +167,19 @@
                             <div class="col-sm-1"></div>
                             <span class="col-sm-5">Frete: </span>
                             <div class="col-sm-2"></div>
-                            <span class="col-sm-4" id="lblFrete">R$10,00 </span>
+                            <span class="col-sm-4" id="lblFrete">R$0,00 </span>
                         </div>
                         <div class="row">                            
                             <div class="col-sm-1"></div>
                             <span class="col-sm-5">Despesas acessórias: </span>
                             <div class="col-sm-2"></div>
-                            <span class="col-sm-4" id="lblFreteAdicional">R$10,00 </span>
-                        </div>
-                        <div class="row">                            
-                            <div class="col-sm-1"></div>
-                            <span class="col-sm-5">Desconto: </span>
-                            <div class="col-sm-2"></div>
-                            <span class="col-sm-4" id="lblDesconto">R$10,00 </span>
+                            <span class="col-sm-4" id="lblFreteAdicional">R$0,00 </span>
                         </div>
                         <div class="row">                            
                             <div class="col-sm-1"></div>
                             <span class="col-sm-5">Seguro: </span>
                             <div class="col-sm-2"></div>
-                            <span class="col-sm-4" id="lblSeguro">R$10,00 </span>
+                            <span class="col-sm-4" id="lblSeguro">R$0,00 </span>
                         </div>
                         <br />
                         <div class="tableHeader"></div>
@@ -177,49 +192,45 @@
                         </div>
                         
                     </div>
+
                     <div class="panel-body col-md-6">
                         <h5 class="tableHeader">Cálculo de Imposto de produto nesta Venda</h5>
+                        <input type="hidden" id="txtTotalImpostos" value="@totalImpostos" />
                         <div class="row">
                             <div class="col-sm-1"></div>
-                            <span class="col-sm-5">Base de cálculo do ICMS: </span>
+                            <span class="col-sm-5">IVA: </span>
                             <div class="col-sm-2"></div>
-                            <span class="col-sm-4" id="lblIcmsBase">R$10,00 </span>
+                            <span class="col-sm-4" id="lblIVA">R$@totalIVA</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <span class="col-sm-5">ST: </span>
+                            <div class="col-sm-2"></div>
+                            <span class="col-sm-4" id="lblST">R$@totalST </span>
                         </div>
                         <div class="row">                            
                             <div class="col-sm-1"></div>
                             <span class="col-sm-5">Valor do ICMS: </span>
                             <div class="col-sm-2"></div>
-                            <span class="col-sm-4" id="lblIcmsTotal">R$10,00 </span>
-                        </div>
-                        <div class="row">                            
-                            <div class="col-sm-1"></div>
-                            <span class="col-sm-5">Base de cálculo do ICMS-ST: </span>
-                            <div class="col-sm-2"></div>
-                            <span class="col-sm-4" id="lblIcms-st">R$10,00 </span>
-                        </div>
-                        <div class="row">                            
-                            <div class="col-sm-1"></div>
-                            <span class="col-sm-5">Valor do ICMS-ST: </span>
-                            <div class="col-sm-2"></div>
-                            <span class="col-sm-4" id="lblIcmsSt">R$10,00 </span>
+                            <span class="col-sm-4" id="lblIcms">R$@totalICMS</span>
                         </div>
                         <div class="row">                            
                             <div class="col-sm-1"></div>
                             <span class="col-sm-5">IPI: </span>
                             <div class="col-sm-2"></div>
-                            <span class="col-sm-4" id="lblIpi">R$10,00 </span>
+                            <span class="col-sm-4" id="lblIpi">R$@totalIPI</span>
                         </div>
                         <div class="row">                            
                             <div class="col-sm-1"></div>
                             <span class="col-sm-5">PIS: </span>
                             <div class="col-sm-2"></div>
-                            <span class="col-sm-4" id="lblPIS">R$10,00 </span>
+                            <span class="col-sm-4" id="lblPIS">R$@totalPIS</span>
                         </div>
                         <div class="row">                            
                             <div class="col-sm-1"></div>
                             <span class="col-sm-5">COFINS: </span>
                             <div class="col-sm-2"></div>
-                            <span class="col-sm-4" id="lblCOFINS">R$10,00 </span>
+                            <span class="col-sm-4" id="lblCOFINS">R$@totalCOFINS</span>
                         </div>
                         <br /><br /><br /><br />
 
@@ -228,7 +239,7 @@
                             <div class="col-sm-1"></div>
                             <span class="col-sm-5">Impostos que somam na NF</span>
                             <div class="col-sm-2"></div>
-                            <span class="col-sm-4" id="lblTotalImpostos">R$10,00 </span>
+                            <span class="col-sm-4" id="lblTotalImpostos">R$@totalImpostos  </span>
                         </div>
                     </div>    
                 </div>
@@ -237,10 +248,49 @@
                         <div class="col-sm-1"></div>
                         <span class="col-sm-5">TOTAL VENDIDO + IMPOSTOS</span>
                         <div class="col-sm-2"></div>
-                        <span class="col-sm-4" id="lblTotalNota">R$10,00 </span>
+                        <span class="col-sm-4" id="lblTotalNota">R$@totalVenda</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </fieldset>
+<script>
+
+    var calculateNewTotal = function () {
+        debugger;
+        var frete =     parseFloat($("#valorFrete").val()) ||  0;
+        var seguro =    parseFloat($("#valorSeguro").val()) ||  0;
+        var adicional = parseFloat($("#valorFreteAdicional").val()) ||  0;
+        var custoFrete = frete + seguro + adicional;
+
+        $("#lblFrete").text("R$" + frete);
+        $("#lblSeguro").text("R$" + seguro);
+        $("#lblFreteAdicional").text("R$" + adicional);
+
+        var total = parseFloat($("#txtTotalVenda").val()) - custoFrete;
+        var totalNota = parseFloat($("#txtTotalImpostos").val()) + total;
+
+        $("#lblTotalVenda").text("R$" + total);
+        $("#lblTotalNota").text("R$" + totalNota);
+    }
+
+    $(document).ready(function () {
+        if ($("#freteDrpDwn").val() == 0) {
+            $("#freteBox").hide();
+        }
+        $("#lblTotalVenda").text("R$@totalVendaProdutos");
+        $("#valorFrete,#valorSeguro,#valorFreteAdicional").change(function () { calculateNewTotal(); });
+        $("#freteDrpDwn").change(function () {
+            if ($("#freteDrpDwn").val() == 0) {
+                $("#valorFrete").val(0);
+                $("#valorSeguro").val(0);
+                $("#valorFreteAdicional").val(0);
+                $("#freteBox").hide();
+                calculateNewTotal();
+            } else {
+                $("#freteBox").show();
+            }
+        });
+    });
+</script>

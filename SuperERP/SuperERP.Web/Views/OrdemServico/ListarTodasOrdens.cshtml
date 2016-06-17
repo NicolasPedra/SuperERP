@@ -1,0 +1,92 @@
+﻿@model IEnumerable<SuperERP.Vendas.DTO.OrdemServicoDTO>
+
+@{
+    ViewBag.Title = "Listar Todas as Ordens de Servico";
+}
+
+<h2>Listar Todas as Ordens de Servico</h2>
+
+<p>
+    @Html.ActionLink("Nova Ordem de Servico", "CadastrarNovaOrdem")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.numeroOrdem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataEntrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.equipamentoRecebido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numeroSerie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.observacaoRecebimentoEquipamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descricaoProblemaDefeito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descricaoServicoPrestado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.observacaoIneternas)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.numeroOrdem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataEntrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.equipamentoRecebido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numeroSerie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.observacaoRecebimentoEquipamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descricaoProblemaDefeito)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descricaoServicoPrestado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.observacaoIneternas)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditarOrdemServico", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Detalhes", "DetalheOrdem", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
