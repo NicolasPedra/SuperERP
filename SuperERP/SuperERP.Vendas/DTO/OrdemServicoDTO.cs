@@ -1,6 +1,4 @@
 ﻿using System;
-using SuperERP.DAL.Models;
-
 namespace SuperERP.Vendas.DTO
 {
     public class OrdemServicoDTO

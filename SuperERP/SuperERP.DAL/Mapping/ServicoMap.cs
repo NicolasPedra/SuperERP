@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.Models.Mapping
 {
     public class ServicoMap : EntityTypeConfiguration<Servico>
     {
@@ -32,10 +32,10 @@ namespace SuperERP.DAL.Models.Mapping
 
             // Relationships
             this.HasRequired(t => t.Categoria)
-                .WithMany(t => t.Servicos)
+                .WithMany(t => t.Servicoes)
                 .HasForeignKey(d => d.ID_Categoria_Servico);
             this.HasRequired(t => t.Empresa)
-                .WithMany(t => t.Servicos)
+                .WithMany(t => t.Servicoes)
                 .HasForeignKey(d => d.ID_Empresa);
 
         }

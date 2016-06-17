@@ -1,36 +1,36 @@
 using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
-    public class Compra
+    public partial class Compra
     {
         public Compra()
         {
-            VendasAtivas = new List<VendasAtivas>();
-            CompraAtiva = new List<CompraAtiva>();
-            Parcelamentos = new List<Parcelamento>();
+            this.Venda_Ativos = new List<Venda_Ativos>();
+            this.Compra_Ativos = new List<Compra_Ativos>();
+            this.Parcelamentoes = new List<Parcelamento>();
         }
 
-        public int Id { get; set; }
-        public int IdEmpresa { get; set; }
-        public int IdFornecedor { get; set; }
-        public int IdUsuario { get; set; }
-        public int IdStatus { get; set; }
-        public int CompraNum { get; set; }
-        public DateTime DataCompra { get; set; }
+        public int ID { get; set; }
+        public int ID_Empresa { get; set; }
+        public int ID_Fornecedor { get; set; }
+        public int ID_Usuario { get; set; }
+        public int ID_Status { get; set; }
+        public int Compra_Num { get; set; }
+        public System.DateTime Data_Compra { get; set; }
         public decimal Desconto { get; set; }
-        public int IdFormaPgto { get; set; }
+        public int ID_FormaPgto { get; set; }
         public string Observacoes { get; set; }
-        public int Idconta { get; set; }
+        public int ID_conta { get; set; }
         public virtual ClienteFornecedor ClienteFornecedor { get; set; }
-        public virtual ICollection<VendasAtivas> VendasAtivas { get; set; }
-        public virtual DadosBancarios DadosBancarios { get; set; }
+        public virtual ICollection<Venda_Ativos> Venda_Ativos { get; set; }
+        public virtual DadosBancario DadosBancario { get; set; }
         public virtual Empresa Empresa { get; set; }
-        public virtual FormaPgto FormaPgto { get; set; }
-        public virtual StatusVenda StatusVenda { get; set; }
+        public virtual Forma_Pgto Forma_Pgto { get; set; }
+        public virtual Status_Venda Status_Venda { get; set; }
         public virtual Usuario Usuario { get; set; }
-        public virtual ICollection<CompraAtiva> CompraAtiva { get; set; }
-        public virtual ICollection<Parcelamento> Parcelamentos { get; set; }
+        public virtual ICollection<Compra_Ativos> Compra_Ativos { get; set; }
+        public virtual ICollection<Parcelamento> Parcelamentoes { get; set; }
     }
 }

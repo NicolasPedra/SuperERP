@@ -1,4 +1,4 @@
-﻿using SuperERP.DAL.Models;
+﻿using SuperERP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace SuperERP.DAL.Repositories
     {
         public ICollection<ClienteFornecedor> ListarClientes()
         {
-            return dbContext.ClienteFornecedores.ToList();
+            return dbContext.ClienteFornecedors.ToList();
         }
     }
 }

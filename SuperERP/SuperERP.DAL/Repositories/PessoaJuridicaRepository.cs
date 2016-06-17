@@ -1,4 +1,4 @@
-﻿using SuperERP.DAL.Models;
+﻿using SuperERP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,20 +11,20 @@ namespace SuperERP.DAL.Repositories
     {
         public PessoaJuridica ObterPorEmail(string email)
         {
-            return (from pessoaJuridica in dbContext.PessoasJuridicas
-                    join fornecedorCliente in dbContext.ClienteFornecedores on pessoaJuridica.ID equals fornecedorCliente.ID_PF
-                    join contato in dbContext.Contatos on fornecedorCliente.ID equals contato.IdPessoaJuridica
+            return (from pessoaJuridica in dbContext.PessoaJuridicas
+                    join fornecedorCliente in dbContext.ClienteFornecedors on pessoaJuridica.ID equals fornecedorCliente.ID_PF
+                    join contato in dbContext.Contatoes on fornecedorCliente.ID equals contato.ID_PessoaJuridica
                     where contato.Email == email
                     select pessoaJuridica).FirstOrDefault();
         }
 
         public PessoaJuridica ObterPorCNPJ(string cnpj)
         {
-            return dbContext.PessoasJuridicas.FirstOrDefault(x => x.CNPJ == cnpj);
+            return dbContext.PessoaJuridicas.FirstOrDefault(x => x.CNPJ == cnpj);
         }
         public List<PessoaJuridica> ObterTodos()
         {
-            var clientes = dbContext.PessoasJuridicas.ToList();
+            var clientes = dbContext.PessoaJuridicas.ToList();
             if (clientes.Count() > 0)
             {
                 return clientes;

@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
-    public partial class StatusVenda
+    public partial class Status_Venda
     {
-        public StatusVenda()
+        public Status_Venda()
         {
             this.Compras = new List<Compra>();
             this.Vendas = new List<Venda>();

@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.Models.Mapping
 {
     public class VendaMap : EntityTypeConfiguration<Venda>
     {
@@ -35,7 +35,7 @@ namespace SuperERP.DAL.Models.Mapping
             this.HasRequired(t => t.ClienteFornecedor)
                 .WithMany(t => t.Vendas)
                 .HasForeignKey(d => d.ID_Cliente);
-            this.HasRequired(t => t.Dados_Bancarios)
+            this.HasRequired(t => t.DadosBancario)
                 .WithMany(t => t.Vendas)
                 .HasForeignKey(d => d.ID_conta);
             this.HasRequired(t => t.Empresa)

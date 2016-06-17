@@ -1,22 +1,21 @@
-﻿using SuperERP.DAL.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Mapping
+namespace SuperERP.Models.Mapping
 {
-    public class DadosBancariosMap : EntityTypeConfiguration<DadosBancarios>
+    public class DadosBancarioMap : EntityTypeConfiguration<DadosBancario>
     {
-        public DadosBancariosMap()
+        public DadosBancarioMap()
         {
             // Primary Key
-            this.HasKey(t => t.Id);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.Banco)
                 .IsRequired()
                 .HasMaxLength(40);
 
-            this.Property(t => t.ContaCorrente)
+            this.Property(t => t.Conta_Corrente)
                 .IsRequired()
                 .HasMaxLength(20);
 
@@ -26,20 +25,24 @@ namespace SuperERP.DAL.Mapping
 
             // Table & Column Mappings
             this.ToTable("DadosBancarios");
-            this.Property(t => t.Id).HasColumnName("ID");
+            this.Property(t => t.ID).HasColumnName("ID");
             this.Property(t => t.Banco).HasColumnName("Banco");
-            this.Property(t => t.ContaCorrente).HasColumnName("Conta_Corrente");
+            this.Property(t => t.Conta_Corrente).HasColumnName("Conta_Corrente");
             this.Property(t => t.Agencia).HasColumnName("Agencia");
-            this.Property(t => t.IdPessoaJuridica).HasColumnName("ID_PessoaJuridica");
-            this.Property(t => t.IdPessoaFisica).HasColumnName("ID_PessoaFisica");
+            this.Property(t => t.ID_PessoaJuridica).HasColumnName("ID_PessoaJuridica");
+            this.Property(t => t.ID_PessoaFisica).HasColumnName("ID_PessoaFisica");
+            this.Property(t => t.ID_Empresa).HasColumnName("ID_Empresa");
 
             // Relationships
+            this.HasOptional(t => t.Empresa)
+                .WithMany(t => t.DadosBancarios)
+                .HasForeignKey(d => d.ID_Empresa);
             this.HasOptional(t => t.PessoaFisica)
                 .WithMany(t => t.DadosBancarios)
-                .HasForeignKey(d => d.IdPessoaFisica);
+                .HasForeignKey(d => d.ID_PessoaFisica);
             this.HasOptional(t => t.PessoaJuridica)
                 .WithMany(t => t.DadosBancarios)
-                .HasForeignKey(d => d.IdPessoaJuridica);
+                .HasForeignKey(d => d.ID_PessoaJuridica);
 
         }
     }

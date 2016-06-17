@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
-    public partial class UnidadeMedida
+    public partial class Unidade_Medida
     {
-        public UnidadeMedida()
+        public Unidade_Medida()
         {
             this.Produtoes = new List<Produto>();
         }

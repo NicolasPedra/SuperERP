@@ -1,16 +1,17 @@
+using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
-    public partial class FormaPgto
+    public partial class Forma_Pgto
     {
-        public FormaPgto()
+        public Forma_Pgto()
         {
-            Compras = new List<Compra>();
-            Vendas = new List<Venda>();
+            this.Compras = new List<Compra>();
+            this.Vendas = new List<Venda>();
         }
 
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Nome { get; set; }
         public virtual ICollection<Compra> Compras { get; set; }
         public virtual ICollection<Venda> Vendas { get; set; }

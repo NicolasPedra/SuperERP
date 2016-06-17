@@ -1,19 +1,20 @@
+using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
-    public class Categoria
+    public partial class Categoria
     {
         public Categoria()
         {
-            Produtos = new List<Produto>();
-            Servicos = new List<Servico>();
+            this.Produtoes = new List<Produto>();
+            this.Servicoes = new List<Servico>();
         }
 
         public int ID { get; set; }
         public bool CategoriaTipo { get; set; }
         public string Nome { get; set; }
-        public virtual ICollection<Produto> Produtos { get; set; }
-        public virtual ICollection<Servico> Servicos { get; set; }
+        public virtual ICollection<Produto> Produtoes { get; set; }
+        public virtual ICollection<Servico> Servicoes { get; set; }
     }
 }

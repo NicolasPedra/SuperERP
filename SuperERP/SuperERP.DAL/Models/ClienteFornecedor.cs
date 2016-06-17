@@ -1,24 +1,25 @@
+using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
-    public class ClienteFornecedor
+    public partial class ClienteFornecedor
     {
         public ClienteFornecedor()
         {
-            Compras = new List<Compra>();
-            ProdutoFornecedores = new List<ProdutoFornecedor>();
-            Vendas = new List<Venda>();
+            this.Compras = new List<Compra>();
+            this.ProdutoFornecedors = new List<ProdutoFornecedor>();
+            this.Vendas = new List<Venda>();
         }
 
         public int ID { get; set; }
-        public int? ID_PJ { get; set; }
-        public int? ID_PF { get; set; }
+        public Nullable<int> ID_PJ { get; set; }
+        public Nullable<int> ID_PF { get; set; }
         public int Tipo { get; set; }
         public virtual PessoaFisica PessoaFisica { get; set; }
         public virtual PessoaJuridica PessoaJuridica { get; set; }
         public virtual ICollection<Compra> Compras { get; set; }
-        public virtual ICollection<ProdutoFornecedor> ProdutoFornecedores { get; set; }
+        public virtual ICollection<ProdutoFornecedor> ProdutoFornecedors { get; set; }
         public virtual ICollection<Venda> Vendas { get; set; }
     }
 }

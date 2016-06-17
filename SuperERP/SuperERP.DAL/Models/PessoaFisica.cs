@@ -1,26 +1,27 @@
+using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
-    public class PessoaFisica
+    public partial class PessoaFisica
     {
         public PessoaFisica()
         {
-            ClienteFornecedores = new List<ClienteFornecedor>();
-            Contatos = new List<Contato>();
-            DadosBancarios = new List<DadosBancarios>();
-            Enderecos = new List<Endereco>();
+            this.ClienteFornecedors = new List<ClienteFornecedor>();
+            this.Contatoes = new List<Contato>();
+            this.DadosBancarios = new List<DadosBancario>();
+            this.Enderecoes = new List<Endereco>();
         }
 
-        public int Id { get; set; }
-        public int IdEmpresa { get; set; }
+        public int ID { get; set; }
+        public int ID_Empresa { get; set; }
         public string Nome { get; set; }
         public string CPF { get; set; }
         public string RG { get; set; }
-        public virtual ICollection<ClienteFornecedor> ClienteFornecedores { get; set; }
-        public virtual ICollection<Contato> Contatos { get; set; }
-        public virtual ICollection<DadosBancarios> DadosBancarios { get; set; }
+        public virtual ICollection<ClienteFornecedor> ClienteFornecedors { get; set; }
+        public virtual ICollection<Contato> Contatoes { get; set; }
+        public virtual ICollection<DadosBancario> DadosBancarios { get; set; }
         public virtual Empresa Empresa { get; set; }
-        public virtual ICollection<Endereco> Enderecos { get; set; }
+        public virtual ICollection<Endereco> Enderecoes { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using SuperERP.Compras.DTO;
-using SuperERP.DAL.Models;
 using SuperERP.DAL.Repositories;
+using SuperERP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

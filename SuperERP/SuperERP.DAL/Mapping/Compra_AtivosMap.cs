@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.Models.Mapping
 {
-    public class Compra_AtivosMap : EntityTypeConfiguration<CompraAtiva>
+    public class Compra_AtivosMap : EntityTypeConfiguration<Compra_Ativos>
     {
         public Compra_AtivosMap()
         {
@@ -26,7 +26,7 @@ namespace SuperERP.DAL.Models.Mapping
 
             // Relationships
             this.HasRequired(t => t.Compra)
-                .WithMany(t => t.CompraAtiva)
+                .WithMany(t => t.Compra_Ativos)
                 .HasForeignKey(d => d.ID_Compra);
             this.HasOptional(t => t.Produto)
                 .WithMany(t => t.Compra_Ativos)

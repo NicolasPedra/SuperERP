@@ -1,35 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SuperERP.DAL.Models;
 using System.Data.Entity;
+using SuperERP.Models;
 
 
 namespace SuperERP.DAL.Repositories
 {
-    public class OrdemServicoRepositorio : Repositorio<OrdemServico>
+    public class OrdemServicoRepositorio : Repositorio<Ordem_Servico>
     {
-        public ICollection<OrdemServico> listarTudao()
+        public ICollection<Ordem_Servico> listarTudao()
         {
-            return dbContext.OrdensDeServico
+            return dbContext.Ordem_Servico
                 .Include(x => x.Servico)
                 .Include(x => x.Status_Servico)
                 .ToList(); 
         }
 
-        public OrdemServico buscarPorID(int ordemID)
+        public Ordem_Servico buscarPorID(int ordemID)
         {
             /* var ordem = dbContext.OrdemServico.FirstOrDefault(x=> x.ID == ordemID);
              return ordem;*/
-            return dbContext.OrdensDeServico.FirstOrDefault(x => x.Id == ordemID);
+            return dbContext.Ordem_Servico.FirstOrDefault(x => x.ID == ordemID);
 
         }
 
-        public void salvarOrdemServico(OrdemServico ordem)
+        public void salvarOrdemServico(Ordem_Servico ordem)
         {
             try
             {
-                dbContext.OrdensDeServico.Add(ordem);
+                dbContext.Ordem_Servico.Add(ordem);
             }
             catch (Exception)
             {
@@ -40,9 +40,9 @@ namespace SuperERP.DAL.Repositories
             dbContext.SaveChanges();
         }
 
-        public void deletarOrdemServico(OrdemServico ordem)
+        public void deletarOrdemServico(Ordem_Servico ordem)
         {
-            dbContext.OrdensDeServico.Remove(ordem);
+            dbContext.Ordem_Servico.Remove(ordem);
             dbContext.SaveChanges();
         }
     }

@@ -1,17 +1,18 @@
+using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
     public partial class Funcionalidade
     {
         public Funcionalidade()
         {
-            Perfis = new List<Perfil>();
+            this.Perfils = new List<Perfil>();
         }
 
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public virtual ICollection<Perfil> Perfis { get; set; }
+        public virtual ICollection<Perfil> Perfils { get; set; }
     }
 }

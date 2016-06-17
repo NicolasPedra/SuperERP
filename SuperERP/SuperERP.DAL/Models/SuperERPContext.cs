@@ -1,10 +1,10 @@
 using System.Data.Entity;
-using SuperERP.Models;
+using System.Data.Entity.Infrastructure;
 using SuperERP.Models.Mapping;
 
-namespace SuperERP.DAL.Context
+namespace SuperERP.Models
 {
-    public class SuperERPContext : DbContext
+    public partial class SuperERPContext : DbContext
     {
         static SuperERPContext()
         {

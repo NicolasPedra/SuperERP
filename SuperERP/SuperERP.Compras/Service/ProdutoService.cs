@@ -1,5 +1,4 @@
 ﻿using SuperERP.Compras.DTO;
-using SuperERP.DAL.Models;
 using SuperERP.Vendas.DTO;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using SuperERP.Models;
 
 namespace SuperERP.Compras.Service
 {

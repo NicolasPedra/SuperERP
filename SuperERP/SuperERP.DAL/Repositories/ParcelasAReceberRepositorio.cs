@@ -1,10 +1,10 @@
-﻿using SuperERP.DAL.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Entity;
 using System.Threading.Tasks;
+using SuperERP.Models;
 
 namespace SuperERP.DAL.Repositories
 {
@@ -12,19 +12,19 @@ namespace SuperERP.DAL.Repositories
     {
         public ICollection<Parcelamento> PegarTodasParcelas()
         {
-            var parcelas = dbContext.Parcelamentos.Include(x => x.Venda.ClienteFornecedor);
+            var parcelas = dbContext.Parcelamentoes.Include(x => x.Venda.ClienteFornecedor);
             return parcelas.ToList();
         }
 
         public Parcelamento PegarParcela( int id )
         {
-            var parcela = dbContext.Parcelamentos.Where(x => x.Id == id).FirstOrDefault();
+            var parcela = dbContext.Parcelamentoes.Where(x => x.ID == id).FirstOrDefault();
 
             return parcela;
         }
         public bool ReceberParcela(Parcelamento parcela)
         {
-            Parcelamento parcelaAlterada = dbContext.Parcelamentos.Where(p => p.Id == parcela.Id).FirstOrDefault();
+            Parcelamento parcelaAlterada = dbContext.Parcelamentoes.Where(p => p.ID == parcela.ID).FirstOrDefault();
             parcela.Pago = true;
             parcela.Data_Pago = System.DateTime.Now;
 

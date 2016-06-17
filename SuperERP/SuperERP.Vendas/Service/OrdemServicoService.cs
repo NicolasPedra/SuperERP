@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using SuperERP.Vendas.DTO;
 using SuperERP.DAL.Repositories;
-using SuperERP.DAL.Models;
 using AutoMapper;
+using SuperERP.Models;
 
 namespace SuperERP.Vendas.Service
 {
@@ -13,7 +13,7 @@ namespace SuperERP.Vendas.Service
 
             // converter o dto em obj model antes de enviar para o repositorio
           //  var ordemServico = new Ordem_Servico();
-           var ordemServico = Mapper.Map<OrdemServicoDTO , OrdemServico>(ordem);       
+           var ordemServico = Mapper.Map<OrdemServicoDTO , Ordem_Servico>(ordem);       
 
             var gravar = new OrdemServicoRepositorio();
             gravar.salvarOrdemServico(ordemServico);
@@ -26,7 +26,7 @@ namespace SuperERP.Vendas.Service
 
             var ordem = new OrdemServicoRepositorio().buscarPorID(idOrdem);
 
-            var ordemDTO = Mapper.Map<OrdemServico, OrdemServicoDTO> (ordem);
+            var ordemDTO = Mapper.Map<Ordem_Servico, OrdemServicoDTO> (ordem);
 
             return ordemDTO;
         }
@@ -37,7 +37,7 @@ namespace SuperERP.Vendas.Service
 
             var listOrdem = new OrdemServicoRepositorio().listarTudao();
 
-            var listaOrdemDTO = Mapper.Map<ICollection<OrdemServico> , ICollection<OrdemServicoDTO>>(listOrdem);
+            var listaOrdemDTO = Mapper.Map<ICollection<Ordem_Servico> , ICollection<OrdemServicoDTO>>(listOrdem);
 
             return listaOrdemDTO;
         }

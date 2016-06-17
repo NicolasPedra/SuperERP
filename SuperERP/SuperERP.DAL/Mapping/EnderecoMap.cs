@@ -1,14 +1,14 @@
-﻿using SuperERP.DAL.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Mapping
+namespace SuperERP.Models.Mapping
 {
     public class EnderecoMap : EntityTypeConfiguration<Endereco>
     {
         public EnderecoMap()
         {
             // Primary Key
-            this.HasKey(t => t.Id);
+            this.HasKey(t => t.ID);
 
             // Properties
             this.Property(t => t.CEP)
@@ -37,10 +37,11 @@ namespace SuperERP.DAL.Mapping
 
             // Table & Column Mappings
             this.ToTable("Endereco");
-            this.Property(t => t.Id).HasColumnName("ID");
+            this.Property(t => t.ID).HasColumnName("ID");
             this.Property(t => t.CEP).HasColumnName("CEP");
-            this.Property(t => t.IdPessoaJuridica).HasColumnName("ID_PessoaJuridica");
-            this.Property(t => t.IdPessoaFisica).HasColumnName("ID_PessoaFisica");
+            this.Property(t => t.ID_PessoaJuridica).HasColumnName("ID_PessoaJuridica");
+            this.Property(t => t.ID_PessoaFisica).HasColumnName("ID_PessoaFisica");
+            this.Property(t => t.ID_Empresa).HasColumnName("ID_Empresa");
             this.Property(t => t.Endereco1).HasColumnName("Endereco");
             this.Property(t => t.Numero).HasColumnName("Numero");
             this.Property(t => t.Complemento).HasColumnName("Complemento");
@@ -48,12 +49,15 @@ namespace SuperERP.DAL.Mapping
             this.Property(t => t.Cidade).HasColumnName("Cidade");
 
             // Relationships
+            this.HasOptional(t => t.Empresa)
+                .WithMany(t => t.Enderecoes)
+                .HasForeignKey(d => d.ID_Empresa);
             this.HasOptional(t => t.PessoaFisica)
-                .WithMany(t => t.Enderecos)
-                .HasForeignKey(d => d.IdPessoaFisica);
+                .WithMany(t => t.Enderecoes)
+                .HasForeignKey(d => d.ID_PessoaFisica);
             this.HasOptional(t => t.PessoaJuridica)
                 .WithMany(t => t.Enderecoes)
-                .HasForeignKey(d => d.IdPessoaJuridica);
+                .HasForeignKey(d => d.ID_PessoaJuridica);
 
         }
     }

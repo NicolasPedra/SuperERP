@@ -1,4 +1,4 @@
-﻿using SuperERP.DAL.Models;
+﻿using SuperERP.Models;
 using SuperERP.Vendas.DTO;
 
 namespace SuperERP.Vendas.Config
@@ -17,9 +17,9 @@ namespace SuperERP.Vendas.Config
             AutoMapper.Mapper.CreateMap<ParcelamentoDTO, Parcelamento>();
             AutoMapper.Mapper.CreateMap<ProdutoEstoqueDTO, Produto>();
             AutoMapper.Mapper.CreateMap<VendaDTO, Venda>();
-            AutoMapper.Mapper.CreateMap<VendaAtivosDTO, VendasAtivas>();
-            AutoMapper.Mapper.CreateMap<VendaAtivosEstoqueDTO, VendasAtivas>();
-            AutoMapper.Mapper.CreateMap<CompraAtivosEstoqueDTO, CompraAtiva>();
+            AutoMapper.Mapper.CreateMap<VendaAtivosDTO, Venda_Ativos>();
+            AutoMapper.Mapper.CreateMap<VendaAtivosEstoqueDTO, Venda_Ativos>();
+            AutoMapper.Mapper.CreateMap<CompraAtivosEstoqueDTO, Compra_Ativos>();
             AutoMapper.Mapper.CreateMap<CategoriaDTO, Categoria>();
             AutoMapper.Mapper.CreateMap<EmpresaDTO, Empresa>();
         }
@@ -34,9 +34,9 @@ namespace SuperERP.Vendas.Config
             AutoMapper.Mapper.CreateMap<Parcelamento, ParcelamentoDTO>();
             AutoMapper.Mapper.CreateMap<Produto, ProdutoEstoqueDTO>();
             AutoMapper.Mapper.CreateMap<Venda, VendaDTO>();
-            AutoMapper.Mapper.CreateMap<VendasAtivas, VendaAtivosDTO>();
-            AutoMapper.Mapper.CreateMap<VendasAtivas, VendaAtivosEstoqueDTO>();
-            AutoMapper.Mapper.CreateMap<CompraAtiva, CompraAtivosEstoqueDTO>();
+            AutoMapper.Mapper.CreateMap<Venda_Ativos, VendaAtivosDTO>();
+            AutoMapper.Mapper.CreateMap<Venda_Ativos, VendaAtivosEstoqueDTO>();
+            AutoMapper.Mapper.CreateMap<Venda_Ativos, CompraAtivosEstoqueDTO>();
             AutoMapper.Mapper.CreateMap<Categoria, CategoriaDTO>();
             AutoMapper.Mapper.CreateMap<Empresa, EmpresaDTO>();
         }

@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
     public partial class Venda
     {
         public Venda()
         {
-            this.Contrato_Venda = new List<ContratoVenda>();
+            this.Contrato_Venda = new List<Contrato_Venda>();
             this.Parcelamentoes = new List<Parcelamento>();
             this.Venda1 = new List<Venda>();
-            this.Venda_Ativos = new List<VendasAtivas>();
+            this.Venda_Ativos = new List<Venda_Ativos>();
         }
 
         public int ID { get; set; }
@@ -27,15 +27,15 @@ namespace SuperERP.DAL.Models
         public double Desconto { get; set; }
         public string Observacoes { get; set; }
         public virtual ClienteFornecedor ClienteFornecedor { get; set; }
-        public virtual ICollection<ContratoVenda> Contrato_Venda { get; set; }
-        public virtual DadosBancarios Dados_Bancarios { get; set; }
+        public virtual ICollection<Contrato_Venda> Contrato_Venda { get; set; }
+        public virtual DadosBancario DadosBancario { get; set; }
         public virtual Empresa Empresa { get; set; }
-        public virtual FormaPgto Forma_Pgto { get; set; }
+        public virtual Forma_Pgto Forma_Pgto { get; set; }
         public virtual ICollection<Parcelamento> Parcelamentoes { get; set; }
-        public virtual StatusVenda Status_Venda { get; set; }
+        public virtual Status_Venda Status_Venda { get; set; }
         public virtual Usuario Usuario { get; set; }
         public virtual ICollection<Venda> Venda1 { get; set; }
         public virtual Venda Venda2 { get; set; }
-        public virtual ICollection<VendasAtivas> Venda_Ativos { get; set; }
+        public virtual ICollection<Venda_Ativos> Venda_Ativos { get; set; }
     }
 }

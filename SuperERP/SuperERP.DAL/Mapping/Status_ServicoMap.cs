@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.Models.Mapping
 {
-    public class Status_ServicoMap : EntityTypeConfiguration<StatusServico>
+    public class Status_ServicoMap : EntityTypeConfiguration<Status_Servico>
     {
         public Status_ServicoMap()
         {

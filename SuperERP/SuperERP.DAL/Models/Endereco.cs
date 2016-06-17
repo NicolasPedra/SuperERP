@@ -1,12 +1,15 @@
-﻿namespace SuperERP.DAL.Models
+using System;
+using System.Collections.Generic;
+
+namespace SuperERP.Models
 {
-    public class Endereco
+    public partial class Endereco
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string CEP { get; set; }
-        public int? IdPessoaJuridica { get; set; }
-        public int? IdPessoaFisica { get; set; }
-        public int? ID_Empresa { get; set; }
+        public Nullable<int> ID_PessoaJuridica { get; set; }
+        public Nullable<int> ID_PessoaFisica { get; set; }
+        public Nullable<int> ID_Empresa { get; set; }
         public string Endereco1 { get; set; }
         public string Numero { get; set; }
         public string Complemento { get; set; }

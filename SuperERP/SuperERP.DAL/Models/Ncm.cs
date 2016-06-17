@@ -1,16 +1,17 @@
+using System;
 using System.Collections.Generic;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
-    public class Ncm
+    public partial class Ncm
     {
         public Ncm()
         {
-            Produtos = new List<Produto>();
+            this.Produtoes = new List<Produto>();
         }
 
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Codico { get; set; }
-        public virtual ICollection<Produto> Produtos { get; set; }
+        public virtual ICollection<Produto> Produtoes { get; set; }
     }
 }

@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.Models.Mapping
 {
-    public class Status_VendaMap : EntityTypeConfiguration<StatusVenda>
+    public class Status_VendaMap : EntityTypeConfiguration<Status_Venda>
     {
         public Status_VendaMap()
         {

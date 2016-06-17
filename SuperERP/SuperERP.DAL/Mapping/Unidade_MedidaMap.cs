@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.Models.Mapping
 {
-    public class Unidade_MedidaMap : EntityTypeConfiguration<UnidadeMedida>
+    public class Unidade_MedidaMap : EntityTypeConfiguration<Unidade_Medida>
     {
         public Unidade_MedidaMap()
         {
