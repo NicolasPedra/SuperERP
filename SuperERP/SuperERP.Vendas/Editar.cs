@@ -1,4 +1,7 @@
-﻿using SuperERP.DAL.Repositories;
+﻿using AutoMapper;
+using SuperERP.DAL.Models;
+using SuperERP.DAL.Repositories;
+using SuperERP.Vendas.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +12,12 @@ namespace SuperERP.Vendas
 {
     public class Editar
     {
-        public static void Servico(int id)
+        public static void Servico(ServicoDTO servico)
         {
 
             var servicoRep = new ServicoRepositorio();
-            var servico = servicoRep.PegarServicoUnico(id);
-            servicoRep.Editar(servico);
+            var s = Mapper.Map<ServicoDTO, Servico>(servico);
+            servicoRep.Alterar(s);
         }
 
     }

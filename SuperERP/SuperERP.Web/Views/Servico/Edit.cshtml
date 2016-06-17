@@ -1,10 +1,10 @@
 ﻿@model SuperERP.Vendas.DTO.ServicoDTO
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Serviço";
 }
 
-<h2>Edit</h2>
+<h2>Editar Serviço</h2>
 
 
 @using (Html.BeginForm())
@@ -12,13 +12,13 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>ServicoDTO</h4>
+        
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.ID)
 
         <div class="form-group">
-        @Html.LabelFor(model => model.ID_Empresa, new { @class = "control-label col-md-2" })
+        <label class = "control-label col-md-2"> Empresa</label>
         <div class="col-md-10">
             @Html.DropDownList("ID_Empresa")
             @Html.ValidationMessageFor(model => model.ID_Empresa)
@@ -26,7 +26,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ID_Categoria_Servico, new { @class = "control-label col-md-2" })
+        <label class="control-label col-md-2"> Categoria</label>
         <div class="col-md-10">
             @Html.DropDownList("ID_Categoria_Servico")
             @Html.ValidationMessageFor(model => model.ID_Categoria_Servico)
@@ -107,14 +107,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Salvar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar para a lista de serviços", "Index")
 </div>
 
 @section Scripts {

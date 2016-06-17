@@ -18,7 +18,7 @@ namespace SuperERP.DAL.Repositories
 
         public ICollection<Servico> PegarServico()
         {
-            return dbContext.Servicoes.ToList();
+            return dbContext.Servicoes.Include(x => x.Categoria).Include(x => x.Empresa).ToList();
         }
         public Servico PegarServicoUnico(int id)
         {

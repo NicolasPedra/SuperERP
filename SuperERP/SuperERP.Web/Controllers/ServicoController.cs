@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperERP.Vendas.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -64,13 +65,13 @@ namespace SuperERP.Web.Controllers
         //
         // POST: /Servico/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(ServicoDTO s, FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
 
-                Vendas.Editar.Servico(Vendas.Listar.ServicoUnico(id));
+                Vendas.Editar.Servico(s);
 
                 return RedirectToAction("Index");
             }

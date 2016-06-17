@@ -1,21 +1,21 @@
 ﻿@model IEnumerable<SuperERP.Vendas.DTO.ServicoDTO>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Servicos Cadastrados";
 }
 
-<h2>Index</h2>
+<h2>Servicos Cadastrados</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar Novo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ID_Empresa)
+            Empresa
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ID_Categoria_Servico)
+            Categoria
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
@@ -50,10 +50,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ID_Empresa)
+            @Html.DisplayFor(modelItem => item.Empresa.Nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ID_Categoria_Servico)
+            @Html.DisplayFor(modelItem => item.Categoria.Nome)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nome)
@@ -83,8 +83,8 @@
             @Html.DisplayFor(modelItem => item.custo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID})
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.ID})
         </td>
     </tr>
 }
